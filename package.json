@@ -14,8 +14,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "test:staged": "npm test -- --findRelatedTests",
+    "test": "jest --passWithNoTests",
+    "test:staged": "npm test -- --findRelatedTests ./src",
     "eject": "react-scripts eject",
     "prepare": "husky install",
     "lint-staged": "lint-staged"
@@ -48,5 +48,11 @@
     "git-commit-msg-linter": "^4.1.1",
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint 'src/**.js' --fix",
+      "npm run test:staged"
+    ]
   }
 }
