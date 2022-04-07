@@ -10,6 +10,7 @@
 
 # production
 /build
+generate-react-cli.json
 
 # misc
 .DS_Store
