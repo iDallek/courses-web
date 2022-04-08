@@ -15,4 +15,5 @@ const fetchData = async (url) => {
   return response;
 };
 
-export default fetchData;
+// eslint-disable-next-line import/prefer-default-export
+export { fetchData };
