@@ -10,12 +10,4 @@ describe('<HomePage />', () => {
 
     expect(homePage).toBeInTheDocument();
   });
-
-  test('it should have a title', () => {
-    render(<HomePage />);
-
-    const title = screen.getByText('Cursos');
-
-    expect(title).toBeInTheDocument();
-  });
 });
