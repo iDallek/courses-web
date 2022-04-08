@@ -6,9 +6,12 @@
 module.exports = {
   roots: ['<rootDir>/src'],
   collectCoverageFrom: [
-    '<rootDir>/src/**/*.js',
+    '<rootDir>/src/**/*.(js|jsx)',
   ],
   coverageDirectory: 'coverage',
+  coveragePathIgnorePatterns: [
+    '<rootDir>/src/helper/axios.js',
+  ],
   setupFilesAfterEnv: [
     '<rootDir>/src/setupTests.js',
   ],

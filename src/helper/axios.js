@@ -8,6 +8,7 @@ const fetchData = async (url) => {
       response = res.data;
     })
     .catch((err) => {
+      // eslint-disable-next-line no-console
       console.log('fetchData error: ', err);
     });
 
