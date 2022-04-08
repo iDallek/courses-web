@@ -16,4 +16,18 @@ describe('<CourseCard />', () => {
 
     expect(courseCard).toBeInTheDocument();
   });
+
+  test('ensure CourseCard renders id according to the received props', () => {
+    const fakeProps = {
+      id: 1,
+      title: 'any_title',
+      description: 'any_description',
+    };
+
+    render(<CourseCard content={fakeProps} />);
+
+    const id = screen.getByRole('heading', { name: 1 });
+
+    expect(id).toBeInTheDocument();
+  });
 });
