@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './pages/HomePage/HomePage';
+import HomePage from './pages/HomePage';
 
 const AppRouter = () => (
   <Router>
