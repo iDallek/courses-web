@@ -8,8 +8,8 @@ import { fetchData } from '../../helper/axios';
 const HomePage = () => {
   const headerProps = {
     title: 'Cursos',
-    buttons: [
-      { label: '+ Adicionar', onClick: () => { console.log('Cursos'); } },
+    links: [
+      { label: '+ Adicionar', href: '/add' },
     ],
   };
 

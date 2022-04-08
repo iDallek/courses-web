@@ -1,5 +1,6 @@
 import React from 'react';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import Header from './Header';
 
 describe('<Header />', () => {
@@ -33,26 +34,24 @@ describe('<Header />', () => {
     expect(title).toHaveTextContent(fakeProps.title);
   });
 
-  test('ensure Header renders buttons according to the received props', () => {
+  test('ensure Header renders links according to the received props', () => {
     const fakeProps = {
       title: 'any title',
-      buttons: [
-        { label: 'button 1', onClick: jest.fn() },
-        { label: 'button 2', onClick: jest.fn() },
+      links: [
+        { label: 'link 1', href: '/any_href_1' },
+        { label: 'link 2', href: '/any_href_2' },
       ],
     };
 
-    render(<Header props={fakeProps} />);
-    const buttons = screen.getAllByRole('button');
+    render(<MemoryRouter><Header props={fakeProps} /></MemoryRouter>);
+    const links = screen.getAllByRole('link');
 
-    expect(buttons).toHaveLength(fakeProps.buttons.length);
+    expect(links).toHaveLength(fakeProps.links.length);
 
-    expect(buttons[0]).toHaveTextContent(fakeProps.buttons[0].label);
-    expect(buttons[1]).toHaveTextContent(fakeProps.buttons[1].label);
+    expect(links[0]).toHaveTextContent(fakeProps.links[0].label);
+    expect(links[1]).toHaveTextContent(fakeProps.links[1].label);
 
-    fakeProps.buttons.forEach((button, index) => {
-      fireEvent.click(buttons[index]);
-      expect(button.onClick).toHaveBeenCalledTimes(1);
-    });
+    expect(links[0]).toHaveAttribute('href', fakeProps.links[0].href);
+    expect(links[1]).toHaveAttribute('href', fakeProps.links[1].href);
   });
 });
