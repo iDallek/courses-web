@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import CourseCard from './CourseCard';
 
 describe('<CourseCard />', () => {
@@ -57,5 +57,21 @@ describe('<CourseCard />', () => {
     const description = screen.getByRole('paragraph');
 
     expect(description).toHaveTextContent('any_description');
+  });
+
+  test('ensure CourseCard call onClick function passed by props', () => {
+    const fakeProps = {
+      id: 1,
+      title: 'any_title',
+      description: 'any_description',
+      onClick: jest.fn(),
+    };
+
+    render(<CourseCard content={fakeProps} />);
+
+    const courseCard = screen.getByRole('article');
+
+    fireEvent.click(courseCard);
+    expect(fakeProps.onClick).toHaveBeenCalledTimes(1);
   });
 });
