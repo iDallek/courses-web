@@ -3,7 +3,7 @@ import React, { useEffect } from 'react';
 import regeneratorRuntime from 'regenerator-runtime';
 import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../components/Header';
-import { fetchDataWithParams, putData } from '../../helper/axios';
+import { fetchDataWithParams, putData, removeData } from '../../helper/axios';
 
 const EditCourse = () => {
   const headerProps = {
@@ -51,6 +51,12 @@ const EditCourse = () => {
   };
 
   const [toggleModal, setToggleModal] = React.useState('hidden');
+
+  const removeSubmit = async () => {
+    await removeData('http://localhost:3004/curso', id);
+
+    navigate('/');
+  };
 
   return (
     <div data-testid="edit-course-component">
@@ -100,6 +106,7 @@ const EditCourse = () => {
             <button
               type="button"
               className="mx-3 bg-red-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+              onClick={removeSubmit}
             >
               Confirmar
             </button>
