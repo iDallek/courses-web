@@ -50,18 +50,61 @@ const EditCourse = () => {
     navigate('/');
   };
 
+  const [toggleModal, setToggleModal] = React.useState('hidden');
+
   return (
     <div data-testid="edit-course-component">
       <div>
         <Header props={headerProps} />
         <button
           type="button"
-          className="mx-3"
+          className="mx-3 bg-green-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
           disabled={disableBtn}
           onClick={handleSubmit}
         >
           Salvar
         </button>
+        <button
+          type="button"
+          className="mx-3 bg-red-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+          onClick={() => setToggleModal('visible')}
+        >
+          Excluir
+        </button>
+        <div
+          className="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
+          id="my-modal"
+        />
+        <div
+          id="modal-box"
+          className={`${toggleModal} fixed z-10 left-0 top-0 w-full h-full overflow-auto bg-black/50`}
+        >
+          <div
+            id="modal-box-content"
+            className="mt-72 mx-auto max-w-md p-5 rounded-lg shadow-lg bg-white"
+          >
+            <h1>Confirma a exclusão?</h1>
+            <p>
+              Deseja remover o registro
+              {' '}
+              {title}
+              ?
+            </p>
+            <button
+              type="button"
+              className="mx-3 bg-blue-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-300"
+              onClick={() => setToggleModal('hidden')}
+            >
+              Cancelar
+            </button>
+            <button
+              type="button"
+              className="mx-3 bg-red-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+            >
+              Confirmar
+            </button>
+          </div>
+        </div>
       </div>
       <form>
         <div className="form-group flex">
