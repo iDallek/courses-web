@@ -1,5 +1,6 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import HomePage from './HomePage';
 import * as helperAxios from '../../helper/axios';
 
@@ -16,7 +17,7 @@ const factoryMockedApiCourse = (times) => {
 
 describe('<HomePage />', () => {
   test('it should mount', () => {
-    render(<HomePage />);
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
 
     const homePage = screen.getByTestId('HomePage');
 
@@ -26,7 +27,7 @@ describe('<HomePage />', () => {
   test('ensure HomePage renders all cards', async () => {
     jest.spyOn(helperAxios, 'fetchData').mockReturnValue(factoryMockedApiCourse(20));
 
-    render(<HomePage />);
+    render(<MemoryRouter><HomePage /></MemoryRouter>);
 
     const cards = await screen.findAllByRole('article');
 
