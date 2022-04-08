@@ -5,7 +5,7 @@ import Header from './Header';
 describe('<Header />', () => {
   test('it should mount', () => {
     const fakeProps = {
-      label: 'any label',
+      title: 'any title',
       buttons: [
         { label: 'button 1', onClick: () => {} },
         { label: 'button 2', onClick: () => {} },
