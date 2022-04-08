@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 // eslint-disable-next-line import/no-extraneous-dependencies, no-unused-vars
 import regeneratorRuntime from 'regenerator-runtime';
 import CourseCard from '../../components/CourseCard';
@@ -25,6 +26,8 @@ const HomePage = () => {
     fetch();
   }, []);
 
+  const navigate = useNavigate();
+
   return (
     <main className="w-full" data-testid="HomePage">
       <Header props={headerProps} />
@@ -34,7 +37,7 @@ const HomePage = () => {
             id: course.idcurso,
             title: course.ds_titulo,
             description: course.ds_descricao,
-            onClick: () => { console.log(`onClick: ${course.ds_titulo}`); },
+            onClick: () => navigate(`/course/${course.idcurso}`),
           };
 
           return <CourseCard key={course.idcurso} content={courseCardProps} />;
