@@ -28,7 +28,7 @@ const AddCourse = () => {
 
   const handleSubmit = async () => {
     await postData('http://localhost:3004/curso', {
-      idcurso: parseInt(code, 2),
+      idcurso: parseInt(code, 10),
       ds_titulo: title,
       ds_descricao: description,
     });
