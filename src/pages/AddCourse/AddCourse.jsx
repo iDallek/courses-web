@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
+// eslint-disable-next-line import/no-extraneous-dependencies, no-unused-vars
+import regeneratorRuntime from 'regenerator-runtime';
+import { useNavigate } from 'react-router-dom';
 import Header from '../../components/Header';
+import { postData } from '../../helper/axios';
 
 const AddCourse = () => {
   const headerProps = {
@@ -20,11 +24,28 @@ const AddCourse = () => {
     }
   }, [code, title, description]);
 
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    await postData('http://localhost:3004/curso', {
+      idcurso: parseInt(code, 2),
+      ds_titulo: title,
+      ds_descricao: description,
+    });
+
+    navigate('/');
+  };
+
   return (
     <div data-testid="add-course-component">
       <div className="flex justify-between">
         <Header props={headerProps} />
-        <button disabled={disableBtn} type="button" className="mx-3">
+        <button
+          type="button"
+          className="mx-3"
+          disabled={disableBtn}
+          onClick={handleSubmit}
+        >
           Salvar
         </button>
       </div>
