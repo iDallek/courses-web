@@ -11,6 +11,8 @@ module.exports = {
   coverageDirectory: 'coverage',
   coveragePathIgnorePatterns: [
     '<rootDir>/src/helper/axios.js',
+    '<rootDir>/src/AppRouter.jsx',
+    '<rootDir>/src/index.jsx',
   ],
   setupFilesAfterEnv: [
     '<rootDir>/src/setupTests.js',
