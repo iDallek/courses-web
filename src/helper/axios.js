@@ -15,5 +15,20 @@ const fetchData = async (url) => {
   return response;
 };
 
+const postData = async (url, data) => {
+  let response;
+
+  await axios.post(url, data)
+    .then((res) => {
+      response = res.data;
+    })
+    .catch((err) => {
+      // eslint-disable-next-line no-console
+      console.log('postData error: ', err);
+    });
+
+  return response;
+};
+
 // eslint-disable-next-line import/prefer-default-export
-export { fetchData };
+export { fetchData, postData };
