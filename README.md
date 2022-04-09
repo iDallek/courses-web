@@ -35,7 +35,7 @@ Para clonar e executar este aplicativo, você precisará do [Git](https://git-sc
 
 ```bash
 # Clonar esse repositório
-$ git clone https://github.com/your-user-name/your-project-name
+$ git clone git@github.com:iDallek/courses-web.git
 
 # Instalar as dependências
 $ npm install
