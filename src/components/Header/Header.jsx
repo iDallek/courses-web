@@ -3,15 +3,15 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
 const Header = ({ props: { title, links } }) => (
-  <header className="flex flex-row justify-between mx-3 my-8 max-w-screen-xl m-auto">
-    <h1 className="text-6xl font-bold text-neutral-800">
+  <header className="flex flex-row justify-between mx-6 my-8 min-w-[80%]">
+    <h1 className="text-5xl mt-2 font-bold text-neutral-800 sm:text-6xl sm:mt-0">
       { title }
     </h1>
     <div>
       { links && links.map((button) => (
         <Link
           key={button.label}
-          className="px-7 hover:bg-amber-400 text-xl font-extralight rounded-3xl bg-amber-500 text-zinc-50"
+          className="block px-5 py-2 mt-2 hover:bg-amber-600 text-lg font-extralight rounded-2xl bg-amber-500 text-zinc-50 sm:text-xl sm:px-7"
           to={button.href}
         >
           {button.label}

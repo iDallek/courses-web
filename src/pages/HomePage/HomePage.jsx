@@ -29,9 +29,11 @@ const HomePage = () => {
   const navigate = useNavigate();
 
   return (
-    <main className="w-full" data-testid="HomePage">
+    <main className="w-full flex flex-col items-center m-auto" data-testid="HomePage">
       <Header props={headerProps} />
-      <div>
+      <div
+        className="flex flex-wrap justify-center max-w-screen-2xl mt-8"
+      >
         {courses?.map((course) => {
           const courseCardProps = {
             id: course.idcurso,
