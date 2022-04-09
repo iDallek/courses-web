@@ -39,7 +39,7 @@ const HomePage = () => {
             id: course.idcurso,
             title: course.ds_titulo,
             description: course.ds_descricao,
-            onClick: () => navigate(`/course/${course.idcurso}`),
+            onClick: () => navigate(`/course/${course.id}`),
           };
 
           return <CourseCard key={course.idcurso} content={courseCardProps} />;

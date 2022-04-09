@@ -26,7 +26,7 @@ describe('<CourseCard />', () => {
 
     render(<CourseCard content={fakeProps} />);
 
-    const id = screen.getByRole('heading', { name: 1 });
+    const id = screen.getByRole('heading', { name: /1/i });
 
     expect(id).toBeInTheDocument();
   });
