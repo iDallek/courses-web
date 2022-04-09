@@ -60,23 +60,27 @@ const EditCourse = () => {
 
   return (
     <div data-testid="edit-course-component">
-      <div>
-        <Header props={headerProps} />
-        <button
-          type="button"
-          className="mx-3 bg-green-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
-          disabled={disableBtn}
-          onClick={handleSubmit}
-        >
-          Salvar
-        </button>
-        <button
-          type="button"
-          className="mx-3 bg-red-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
-          onClick={() => setToggleModal('visible')}
-        >
-          Excluir
-        </button>
+      <div className="w-full flex flex-col items-center m-auto">
+        <div>
+          <Header props={headerProps} />
+        </div>
+        <div>
+          <button
+            type="button"
+            className="mx-3 my-3 bg-green-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-green-300"
+            disabled={disableBtn}
+            onClick={handleSubmit}
+          >
+            Salvar
+          </button>
+          <button
+            type="button"
+            className="mx-3 bg-red-500 text-white rounded-md px-8 py-2 text-base font-medium hover:bg-red-600 focus:outline-none focus:ring-2 focus:ring-red-300"
+            onClick={() => setToggleModal('visible')}
+          >
+            Excluir
+          </button>
+        </div>
         <div
           className="fixed hidden inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full"
           id="my-modal"
@@ -113,9 +117,9 @@ const EditCourse = () => {
           </div>
         </div>
       </div>
-      <form>
-        <div className="form-group flex">
-          <label htmlFor="id">
+      <form className="mb-4 md:flex md:justify-between">
+        <div className="form-group flex flex-col w-[80%] lg:w-[60%] xl:w-[40%] m-auto">
+          <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="id">
             Código
             <input
               id="id"
@@ -124,9 +128,10 @@ const EditCourse = () => {
               data-testid="id-input"
               onChange={({ target }) => setCode(target.value)}
               value={code}
+              className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             />
           </label>
-          <label htmlFor="title">
+          <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="title">
             Título
             <input
               id="title"
@@ -135,9 +140,10 @@ const EditCourse = () => {
               data-testid="title-input"
               onChange={({ target }) => setTitle(target.value)}
               value={title}
+              className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             />
           </label>
-          <label htmlFor="description">
+          <label className="block mb-2 text-sm font-bold text-gray-700" htmlFor="description">
             Descrição
             <textarea
               id="description"
@@ -146,6 +152,7 @@ const EditCourse = () => {
               data-testid="description-input"
               onChange={({ target }) => setDescription(target.value)}
               value={description}
+              className="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
             />
           </label>
         </div>
