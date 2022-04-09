@@ -27,7 +27,7 @@ const AddCourse = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    await postData('http://localhost:3004/curso', {
+    await postData('https://courses-crud-api.herokuapp.com/curso', {
       idcurso: parseInt(code, 10),
       ds_titulo: title,
       ds_descricao: description,

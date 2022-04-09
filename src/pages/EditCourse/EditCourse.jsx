@@ -18,7 +18,7 @@ const EditCourse = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const courseData = await fetchDataWithParams('http://localhost:3004/curso', id);
+      const courseData = await fetchDataWithParams('https://courses-crud-api.herokuapp.com/curso', id);
 
       setCode(courseData?.idcurso);
       setTitle(courseData?.ds_titulo);
@@ -41,7 +41,7 @@ const EditCourse = () => {
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
-    await putData('http://localhost:3004/curso', id, {
+    await putData('https://courses-crud-api.herokuapp.com/curso', id, {
       idcurso: parseInt(code, 10),
       ds_titulo: title,
       ds_descricao: description,
@@ -53,7 +53,7 @@ const EditCourse = () => {
   const [toggleModal, setToggleModal] = React.useState('hidden');
 
   const removeSubmit = async () => {
-    await removeData('http://localhost:3004/curso', id);
+    await removeData('https://courses-crud-api.herokuapp.com/curso', id);
 
     navigate('/');
   };

@@ -18,7 +18,7 @@ const HomePage = () => {
 
   useEffect(() => {
     const fetch = async () => {
-      const apiUrl = 'http://localhost:3004/curso';
+      const apiUrl = 'https://courses-crud-api.herokuapp.com/curso';
 
       setCourses(await fetchData(apiUrl));
     };
