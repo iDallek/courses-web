@@ -2,6 +2,9 @@
   "name": "courses-web",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "16.x"
+  },
   "dependencies": {
     "axios": "^0.26.1",
     "prop-types": "^15.8.1",
