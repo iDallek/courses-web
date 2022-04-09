@@ -16,6 +16,11 @@
   </h3>
 </div>
 
+### Principais Stacks
+
+- [React](https://reactjs.org/)
+- [Tailwind](https://tailwindcss.com/)
+
 ## 🚀 Usando localmente
 
 <!-- Example: -->
